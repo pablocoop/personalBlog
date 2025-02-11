@@ -6,5 +6,5 @@ For local access: http://localhost/laravel/blog/public/
 
 ### Alerts
 
-The main difference between 'blade.alert' and 'blade.alert2' is that the first have PHP code on it and the second one doesn't. 
+The main difference between 'blade.alert' and 'blade.alert2' is that the first have PHP code on it (anonymous components) and the second one doesn't (view components). 
 The second one is used by a class called Alert2 on app/View/Components/Alert2.php that contains the sustancial php-code to run the alerts on the page.
