@@ -9,7 +9,8 @@ class HomeController extends Controller
     // index()
     public function __invoke() //solo para controlador de un solo método
     {
-        return "Welcome to the homepage";
+        // return view('home');
+        return view('Home');
     }
     //
 }
