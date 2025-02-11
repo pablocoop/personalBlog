@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function __invoke() //solo para controlador de un solo método
     {
         // return view('home');
-        return view('Home');
+        return view('home');
     }
     //
 }
