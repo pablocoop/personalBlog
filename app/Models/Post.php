@@ -11,6 +11,18 @@ class Post extends Model
 {
     use HasFactory; 
 
+    /* protected $fillable = [
+        'title',
+        'slug',
+        'category',
+        'content',
+    ]; */
+
+    protected $guarded = [ //de esta forma no podrá cambiarse 'is_active' mediante un formulario
+        'is_active', 
+    ];
+
+
     // protected $table = 'posts';
 
     // Esto último es opcional, pues de por sí trabajará con una convención:
