@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -23,6 +24,14 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'min:5', 'max:255'],
+            'slug' => ['required', 'unique:posts'],
+            'category' => ['required'],
+            'content' => ['required'],
+        ]);
+
+
         Post::create($request->all());
         /* Post::create([
             'title' => $request->title,
@@ -74,6 +83,13 @@ class PostController extends Controller
         $post->content = $request->content;
 
         $post->save(); */
+
+        $request->validate([
+            'title' => ['required', 'min:5', 'max:255'],
+            'slug' => "required|unique:posts,slug,{$post->id}",
+            'category' => ['required'],
+            'content' => ['required'],
+        ]);
 
         $post->update($request->all());
 
