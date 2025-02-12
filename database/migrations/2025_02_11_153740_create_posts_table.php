@@ -18,6 +18,9 @@ return new class extends Migration
             // php artisan make:migration add_avatar_to_users_table
 
             $table->string('title');
+
+            $table->string('slug')->unique();
+
             $table->longText('content');
 
             $table->string('category');

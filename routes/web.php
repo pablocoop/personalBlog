@@ -8,13 +8,38 @@ use App\Models\Post;
 //Route::get('/', [HomeController::class, 'index']);
 Route::get('/', HomeController::class); //no lleva el método pues __invoke() es el único
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::resource('posts', PostController::class);
+// Route::apiResource('posts', PostController::class)
 
-Route::get('/posts/create', [PostController::class, 'create']);
+/* Route::resource('articulos', PostController::class)
+    ->parameters(['articulos' => 'post'])
+    ->names('posts'); // esto realiza automáticamente lo de abajo
+ */
+/* Route::get('/posts', [PostController::class, 'index'])
+    ->name('posts.index');
 
-Route::get('/posts/{post}', [PostController::class, 'show']);
+Route::get('/posts/create', [PostController::class, 'create'])
+    ->name('posts.create');
 
-Route::get('prueba', function(){
+Route::post('/posts', [PostController::class, 'store'])
+    ->name('posts.store');
+
+Route::get('/posts/{post}', [PostController::class, 'show'])
+    ->name('posts.show');
+
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+    ->name('posts.edit');
+
+Route::put('/posts/{post}', [PostController::class, 'update'])
+    ->name('posts.update');
+
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
+ */
+
+
+
+//Route::get('prueba', function(){
     /*
     Crear nuevo post
     
@@ -62,8 +87,6 @@ Route::get('prueba', function(){
                     ->get();
     return $posts;
     */
-});
-
-
+//});
 
 // una Route puede ser de tipo: get, post, put, patch, delete

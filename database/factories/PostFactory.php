@@ -18,6 +18,7 @@ class PostFactory extends Factory
     {
         return [ //librería faker
             'title' => $this->faker->sentence(),
+            'slug' => $this->faker->slug(),
             'content' => $this->faker->text(1000),
             'category'=> $this->faker->word(),
             'published_at' => $this->faker->dateTime(),
